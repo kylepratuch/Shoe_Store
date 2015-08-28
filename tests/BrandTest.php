@@ -5,7 +5,7 @@
     */
 
     //Dependencies:
-    // require_once "src/Store.php";
+    require_once "src/Store.php";
     require_once "src/Brand.php";
 
     //Point to test database:
@@ -18,8 +18,9 @@
     {
         protected function tearDown()
         {
-            // Store::deleteAll();
+            Store::deleteAll();
             Brand::deleteAll();
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
         }
 
         //Test Brand save method:
@@ -91,6 +92,52 @@
             //Assert
             $this->assertEquals(true, is_numeric($result));
         }
+
+        //Test Brand addStore method:
+        function testAddStore()
+        {
+            //Arrange
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+            $result = $test_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$test_store], $result);
+        }
+
+        //Test Brand getStores method:
+        function testGetStores()
+        {
+            //Arrange
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $store_name2 = "Save Our Soles";
+            $test_store2 = new Store($store_name2);
+            $test_store2->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+            $test_brand->addStore($test_store2);
+            $result = $test_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$test_store, $test_store2], $result);
+        }
+
 
 
 

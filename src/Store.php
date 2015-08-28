@@ -80,8 +80,8 @@
         //Get Brand objects associated with a Store object:
         function getBrands()
         {
-            $results = $GLOBALS['DB']->query(
-                "SELECT brands.* FROM
+            $results = $GLOBALS['DB']->query
+                ("SELECT brands.* FROM
                     stores  JOIN brands_stores ON (stores.id = brands_stores.store_id)
                             JOIN brands ON (brands_stores.brand_id = brands.id)
                     WHERE stores.id = {$this->getId()};"
