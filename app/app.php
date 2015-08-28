@@ -59,7 +59,39 @@
     });
 
     //View a store in detail:
-    $app->
+    $app->get('/store/{id}', function($id) use ($app) {
+        $store = Store::find($id);
+        return $app['twig']->render('store.html.twig', array(
+            'store' => $store,
+            'brands' => $store->getBrands(),
+            'all_brands' => Brand::getAll()
+        ));
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

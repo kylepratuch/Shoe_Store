@@ -10,7 +10,7 @@
             <p>Check out these stores:</p>
             <ul>
                 {% for store in stores %}
-                    <li><a href='/stores/{{ store.getId }}'>{{ store.getStoreName }}</a></li>
+                    <li><a href='/store/{{ store.getId }}'>{{ store.getStoreName }}</a></li>
                 {% endfor %}
             </ul>
             <form action='/delete_stores' method='post'>
