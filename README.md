@@ -10,7 +10,7 @@ _Shoe store allows users to add, edit, and delete shoe stores to a database. Sho
 
 ## Setup
 
- 1. Clone this repository: run command ```git clone https://github.com/radradish/Shoe_Store.git ``` then change directory to top level of project folder.
+ 1. Clone this repository: run command ```git clone https://github.com/kylepratuch/Shoe_Store.git ``` then change directory to top level of project folder.
  2. Use Composer to install dependencies: run command ```composer install ``` to download vendor files for Silex, Twig, and PHPUnit (if you wish to run the included tests).
  3. A local SQL server is needed to run the app.
     In your terminal: ```mysql.server start``` followed by ```mysql -root -proot```.
