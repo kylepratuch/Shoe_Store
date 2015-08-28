@@ -76,6 +76,21 @@
             $this->assertEquals([], $result);
         }
 
+        //Test Store getId method:
+        function testGetId()
+        {
+            //Arrange
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            //Act
+            $result = $test_store->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
+
 
 
 
