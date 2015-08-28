@@ -1,53 +1,63 @@
 <html>
 <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     <title>Shoes!</title>
 </head>
 <body>
-    <h1>Shoes!</h1>
+    <div class='container'>
+        <h1><em>Time to manage some shoe stores!</em></h1>
 
-    <h2>Stores:</h2>
-        {% if stores is not empty %}
-            <p>Check out these stores:</p>
-            <ul>
-                {% for store in stores %}
-                    <li><a href='/store/{{ store.getId }}'>{{ store.getStoreName }}</a></li>
-                {% endfor %}
-            </ul>
-            <form action='/delete_stores' method='post'>
-                <button type='submit'>Clear</button>
-            </form>
-            {% else %}
-                <p>No stores yet!</p>
-        {% endif %}
+        <br>
 
-        <h3>Add a store:</h3>
-        <form action='/stores' method='post'>
-            <label for='store_name'>Name of store:</label>
-            <input id='store_name' name='store_name' type='text'>
-            <button type='submit'>Add</button>
-        </form>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h2>Stores:</h2>
+                    {% if stores is not empty %}
+                        <p>Check out these stores:</p>
+                        <ul>
+                            {% for store in stores %}
+                                <li><a href='/store/{{ store.getId }}'>{{ store.getStoreName }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <form action='/delete_stores' method='post'>
+                            <button type='submit' class='btn btn-danger btn-xs'>Clear</button>
+                        </form>
+                        {% else %}
+                            <p>No stores yet!</p>
+                    {% endif %}
 
-    <h2>Brands:</h2>
-        {% if brands is not empty %}
-            <p>Check out these brands:</p>
-            <ul>
-                {% for brand in brands %}
-                    <li><a href='/brands/{{ brand.getId }}'>{{ brand.getBrandName }}</a></li>
-                {% endfor %}
-            </ul>
-            <form action='/delete_brands' method='post'>
-                <button type='submit'>Clear</button>
-            </form>
-            {% else %}
-                <p>No brands yet!</p>
-        {% endif %}
+                    <h3>Add a store:</h3>
+                    <form action='/stores' method='post'>
+                        <label for='store_name'>Name of store:</label>
+                        <input id='store_name' name='store_name' type='text'>
+                        <button type='submit' class = 'btn btn-success'>Add</button>
+                    </form>
+            </div>
 
-        <h3>Add a brand:</h3>
-        <form action='/brands' method='post'>
-            <label for='brand_name'>Name of brand:</label>
-            <input id='brand_name' name='brand_name' type='text'>
-            <button type='submit'>Add</button>
-        </form>
+            <div class='col-md-6'>
+                <h2>Brands:</h2>
+                    {% if brands is not empty %}
+                        <p>Check out these brands:</p>
+                        <ul>
+                            {% for brand in brands %}
+                                <li><a href='/brands/{{ brand.getId }}'>{{ brand.getBrandName }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <form action='/delete_brands' method='post'>
+                            <button type='submit' class='btn btn-danger btn-xs'>Clear</button>
+                        </form>
+                        {% else %}
+                            <p>No brands yet!</p>
+                    {% endif %}
 
+                    <h3>Add a brand:</h3>
+                    <form action='/brands' method='post'>
+                        <label for='brand_name'>Name of brand:</label>
+                        <input id='brand_name' name='brand_name' type='text'>
+                        <button type='submit' class='btn btn-success'>Add</button>
+                    </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

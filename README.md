@@ -6,7 +6,7 @@
 
 ## Description
 
-_Shoe store allows users to add, edit, and delete shoe stores to a database. Shoe brands may also be added. Stores may carry many brands, and brands my be carried at many stores._
+_Shoe store allows users to add, edit, and delete shoe stores to a database. Shoe brands may also be added. Stores may carry many brands, and brands may be carried at many stores._
 
 ## Setup
 
@@ -15,13 +15,15 @@ _Shoe store allows users to add, edit, and delete shoe stores to a database. Sho
  3. A local SQL server is needed to run the app.
     In your terminal: ```mysql.server start``` followed by ```mysql -root -proot```.
     If you would like to create the databases from scratch, use the following commands:
-        ```
-        > CREATE DATABASE shoes;
-        > USE shoes;
-        > CREATE TABLE stores (store_name VARCHAR (255), id serial PRIMARY KEY);
-        > CREATE TABLE brands (brand_name VARCHAR (255), id serial PRIMARY KEY);
-        > CREATE TABLE brands_stores (brand_id INT, store_id INT, id serial PRIMARY KEY);
-        ```
+
+```console
+> CREATE DATABASE shoes;
+> USE shoes;
+> CREATE TABLE stores (store_name VARCHAR (255), id serial PRIMARY KEY);
+> CREATE TABLE brands (brand_name VARCHAR (255), id serial PRIMARY KEY);
+> CREATE TABLE brands_stores (brand_id INT, store_id INT, id serial PRIMARY KEY);
+```
+
         If you would like to run the included tests, copy to shoes_test using phpmyadmin.
         Be sure are using the correct server address in app/app.php, tests/StoreTest.php, and tests/BrandTest.php!
  4. Start your server in the '/web' folder: to use PHP's built-in server, run command ```php -S localhost:8000```.
