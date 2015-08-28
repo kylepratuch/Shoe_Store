@@ -138,30 +138,27 @@
         ));
     });
 
+    //View a brand in detail:
+    $app->get('/brands/{id}', function($id) use ($app) {
+        $brand = Brand::find($id);
+        return $app['twig']->render('brand.html.twig', array(
+            'brand' => $brand,
+            'stores' => $brand->getStores(),
+            'all_stores' => Store::getAll()
+        ));
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Add a store to a brand:
+    $app->post('/add_stores', function() use ($app) {
+        $brand = Brand::find($_POST['brand_id']);
+        $store = Store::find($_POST['store_id']);
+        $brand->addStore($store);
+        return $app['twig']->render('brand.html.twig', array(
+            'brand' => $brand,
+            'stores' => $brand->getStores(),
+            'all_stores' => Store::getAll()
+        ));
+    });
 
     return $app;
 
