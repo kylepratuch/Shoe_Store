@@ -77,6 +77,21 @@
 
         }
 
+        //Test Brand getId method:
+        function testGetId()
+        {
+            //Arrange
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            //Act
+            $result = $test_brand->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
+
 
 
 

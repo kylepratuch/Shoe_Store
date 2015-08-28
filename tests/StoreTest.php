@@ -6,7 +6,7 @@
 
     //Dependencies:
     require_once "src/Store.php";
-    // require_once "src/Brand.php";
+    require_once "src/Brand.php";
 
     //Point to test database:
     $server = 'mysql:host=localhost:3306;dbname=shoes_test';
@@ -19,7 +19,7 @@
         protected function tearDown()
         {
             Store::deleteAll();
-            // Brand::deleteAll();
+            Brand::deleteAll();
         }
 
         //Test Store save method:
@@ -127,6 +127,51 @@
 
             //Assert
             $this->assertEquals([$test_store2], $result);
+        }
+
+        //Test Store addBrand method:
+        function testAddBrand()
+        {
+            //Act
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            //Act
+            $test_store->addBrand($test_brand);
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand], $result);
+        }
+
+        //Test Store getBrands method:
+        function testgetBrands()
+        {
+            //Arrange
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $brand_name2 = "Cool Shoes";
+            $test_brand2 = new Brand($brand_name2);
+            $test_brand2->save();
+
+            //Act
+            $test_store->addBrand($test_brand);
+            $test_store->addBrand($test_brand2);
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand, $test_brand2], $result);
         }
 
 
