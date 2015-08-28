@@ -175,6 +175,25 @@
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
 
+        //Test Store find method:
+        function testFind()
+        {
+            //Arrange
+            $store_name = "Shoes Galore";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $store_name2 = "Save Our Soles";
+            $test_store2 = new Store($store_name);
+            $test_store2->save();
+
+            //Act
+            $id = $test_store->getId();
+            $result = Store::find($id);
+
+            //Assert
+            $this->assertEquals($test_store, $result);
+        }
 
 
 
