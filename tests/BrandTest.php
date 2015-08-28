@@ -138,32 +138,24 @@
             $this->assertEquals([$test_store, $test_store2], $result);
         }
 
+        //Test Brand find method:
+        function testFind()
+        {
+            //Arrange
+            $brand_name = "Super Kicks";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
 
+            $brand_name2 = "Cool Shoes";
+            $test_brand2 = new Brand($brand_name2);
+            $test_brand->save();
 
+            //Act
+            $id = $test_brand->getId();
+            $result = Brand::find($id);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //Assert
+            $this->assertEquals($test_brand, $result);
+        }
     }
+?>

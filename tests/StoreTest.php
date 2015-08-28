@@ -194,24 +194,5 @@
             //Assert
             $this->assertEquals($test_store, $result);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 ?>
