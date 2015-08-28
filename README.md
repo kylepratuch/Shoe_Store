@@ -1,4 +1,4 @@
-# Shoe_Storeß
+# Shoe_Store
 
 ##### _In-browser shoe store management app, 8/28/2015_
 

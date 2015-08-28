@@ -27,7 +27,7 @@
             <button type='submit'>Add</button>
         </form>
 
-    <h2>Brands</h2>
+    <h2>Brands:</h2>
         {% if brands is not empty %}
             <p>Check out these brands:</p>
             <ul>
@@ -43,7 +43,7 @@
         {% endif %}
 
         <h3>Add a brand:</h3>
-        <form>
+        <form action='/brands' method='post'>
             <label for='brand_name'>Name of brand:</label>
             <input id='brand_name' name='brand_name' type='text'>
             <button type='submit'>Add</button>
