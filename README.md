@@ -10,9 +10,9 @@ _Shoe store allows users to add, edit, and delete shoe stores to a database. Sho
 
 ## Setup
 
- 1. Clone this repository: run command ```git clone https://github.com/kylepratuch/Shoe_Store.git ``` then change directory to top level of project folder.
- 2. Use Composer to install dependencies: run command ```composer install ``` to download vendor files for Silex, Twig, and PHPUnit (if you wish to run the included tests).
- 3. A local SQL server is needed to run the app.
+ * Clone this repository: run command ```git clone https://github.com/kylepratuch/Shoe_Store.git ``` then change directory to top level of project folder.
+ * Use Composer to install dependencies: run command ```composer install ``` to download vendor files for Silex, Twig, and PHPUnit (if you wish to run the included tests).
+ * A local SQL server is needed to run the app.
     In your terminal: ```mysql.server start``` followed by ```mysql -root -proot```.
     If you would like to create the databases from scratch, use the following commands:
 
@@ -25,9 +25,10 @@ _Shoe store allows users to add, edit, and delete shoe stores to a database. Sho
 ```
 
 If you would like to run the included tests, copy to shoes_test using phpmyadmin.
-Be sure are using the correct server address in app/app.php, tests/StoreTest.php, and tests/BrandTest.php!
- 4. Start your server in the '/web' folder: to use PHP's built-in server, run command ```php -S localhost:8000```.
- 5. View the app: in your browser, navigate to the home page at the root address. If running a server as described above, go to 'http://localhost:8000'.
+Be sure you are using the correct server address in app/app.php, tests/StoreTest.php, and tests/BrandTest.php!
+
+ * Start your server in the '/web' folder: to use PHP's built-in server, run command ```php -S localhost:8000```.
+ * View the app: in your browser, navigate to the home page at the root address. If running a server as described above, go to 'http://localhost:8000'.
 
 ## Technologies Used
 
