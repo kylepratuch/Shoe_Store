@@ -68,17 +68,7 @@
             // $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE id = {$this->getId()};");
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        
     }
 
 
