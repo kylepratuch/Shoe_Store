@@ -24,8 +24,8 @@ _Shoe store allows users to add, edit, and delete shoe stores to a database. Sho
 > CREATE TABLE brands_stores (brand_id INT, store_id INT, id serial PRIMARY KEY);
 ```
 
-        If you would like to run the included tests, copy to shoes_test using phpmyadmin.
-        Be sure are using the correct server address in app/app.php, tests/StoreTest.php, and tests/BrandTest.php!
+If you would like to run the included tests, copy to shoes_test using phpmyadmin.
+Be sure are using the correct server address in app/app.php, tests/StoreTest.php, and tests/BrandTest.php!
  4. Start your server in the '/web' folder: to use PHP's built-in server, run command ```php -S localhost:8000```.
  5. View the app: in your browser, navigate to the home page at the root address. If running a server as described above, go to 'http://localhost:8000'.
 
