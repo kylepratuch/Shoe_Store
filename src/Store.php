@@ -14,7 +14,7 @@
         //Set and get object properties:
         function setStoreName($new_store_name)
         {
-            $this->name = (string) $new_store_name;
+            $this->store_name = (string) $new_store_name;
         }
 
         function getStoreName()
@@ -52,6 +52,20 @@
         static function deleteALl()
         {
             $GLOBALS['DB']->exec("DELETE FROM stores;");
+        }
+
+        //Update a Store object's name:
+        function update($new_store_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_store_name}' WHERE id = {$this->getId()};");
+            $this->setStoreName($new_store_name);
+        }
+
+        //Delete a single Store object from database:
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+            // $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE id = {$this->getId()};");
         }
 
 
